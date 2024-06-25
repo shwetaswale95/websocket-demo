@@ -1,0 +1,16 @@
+<!-- src/app/chat/chat.component.html -->
+<div class="chat-container">
+  <div class="chat-header">
+    <h2>Live Chat Client 1</h2>
+  </div>
+  <div>
+    <div class="chat-messages" *ngFor="let message of messages">
+      <strong>{{message.username}}:</strong> {{message.text}} <small>{{message.timestamp | date:'shortTime'}}</small>
+    </div>
+  </div>
+  <div class="chat-input">
+    <input type="text" [(ngModel)]="username" placeholder="Username" />
+    <input type="text" [(ngModel)]="newMessage" placeholder="Type a message..." (keyup.enter)="sendMessage()" />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>
